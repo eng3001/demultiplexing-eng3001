@@ -1,0 +1,61 @@
+Wyatt Eng
+Demultiplexing and Index Swapping
+
+Part1
+1294_S1_L008_R1_001.fastq.gz | read1
+1294_S1_L008_R2_001.fastq.gz | index1
+1294_S1_L008_R3_001.fastq.gz | index2
+1294_S1_L008_R4_001.fastq.gz | read2
+
+For the index file, the lowest average was a quality score of about 31.
+I believe that if a single base has a q-score below 28 in the index files,
+we should throw out the read because there are only 8 base pairs in an index
+and a small error in a single nucleotide may refer to a different index.
+For the sequence files, I believe that we should keep sequences that have an
+average total base quality score of 35 because sequences
+
+The number of indexes that contain undetermined base calls:
+command: zcat 1294_S1_L008_R2_001.fastq.gz | sed -n '2~4p' | grep -c 'N'
+index 1: 3976613
+command: zcat 1294_S1_L008_R3_001.fastq.gz | sed -n '2~4p' | grep -c 'N'
+index 2: 3328051
+one-line command: zcat 1294_S1_L008_R2_001.fastq.gz 1294_S1_L008_R3_001.fastq.gz | sed -n '2~4p' | grep -c 'N'
+seq count: 7304664
+
+
+Part2
+Problem:
+Index hopping occurs when a sequence's index swaps with another
+index, which may cause undetermined index-pairs or incorrect library
+assignment. De-multiplexing is crucial in order to clean up the data and
+identify sequences that have undergone index hopping. The problem is to identify
+and sort out sequences and indexes with a low quality score and isolate
+sequences that have undergone index hopping. Index hopping is when both indexes
+are in the known index list but are not the same.
+
+Number of Files:
+48+2+2 output files
+24 indexes x 2 because of R1 and R2, 2 for unknown, and 2 for index hopping.
+
+Informative Output:
+An output file with run results would be highly beneficial to inform the user
+if the de-multiplexing run was effective. A useful output should contain
+the number of matched indexes, the number of read pairs per index, the
+number of read pairs with index hopping, the number of read pairs with unknown
+indexes. It would also be beneficial to show the percentage of the reads that
+were matched indexes and the percentage of reads that were index hopped.
+The line number for each file may also be helpful.
+
+Test file case order:                   Output File:
+Index contains 'N'                      Unknown File
+Index has low quality score             Unknown File
+Index hopping                           Hop File
+Index is not in known dictionary list   Unknown File
+Matched index par                       Index File
+
+
+Good matched read pairs
+Index hopping
+Index contains 'N'
+Index has low quality scores
+Index not in known dictionary list

@@ -1,0 +1,76 @@
+#!/bin/python
+
+Function Definitions:
+1) Have a function that finds the reverse complement of a string.
+
+def reverse_complement(string):
+  '''translate a string of nucleotides to find the reverse complement'''
+  return rc_string
+
+Input: GTAGCGTA
+Output: TACGCTAC
+
+2) Have a function that takes in the sequence array and index, which will write
+the record to a index file.
+
+def write_record(record array, string):
+  '''write the record to the proper file'''
+  write to corresponding file "Seq_ID_F_Index1_Index2.fq" or
+  "Seq_ID_R_Index1_Index2.fq"
+  return nothing
+
+Input: seq_record[], GTAGCGTA
+Return: Nothing
+
+3) Check if index Q-scores is within proper quality score cut off value
+
+def check_index(index array)
+  '''check if all of the index q-scores are above a specified value'''
+  return bool (yes or no)
+
+Input: index_array[]
+Return: True or False
+
+4) Check if the average of a sequence Q-scores is above a cut off value
+
+def check_sequence(sequence array)
+  '''check if the sequences average q-score is above a specific value'''
+  return bool
+
+Input: seq_array[]
+Return: True or False
+
+5) Check if the indexes are in the known index list
+
+def valid_index(index1, index2)
+  '''check if the indexes are in the known index list'''
+  return bool
+
+Input: GTAGCGTA, CGATCGAT
+Output: True or False
+
+
+Pseudo Code:
+
+Load the indexes into a dictionary with the value being a file handle.
+Make a dictionary that keeps count of how many pairs per index-pair there is.
+
+Loop through the file handles and open all of the files.
+  Index file names: "INDEX_R1, INDEX_R2" for all 24 indexes
+                    "Unknown_R1, Unknown_R2, Hop_R1, Hop_R2"
+
+Open the four zipped files.
+  Store the first four lines of each file into a specified array.
+  (have and array to store the record for each file)
+  Assign bool variables that run the Q-score checking functions.
+  Assign bool variable to see if indexes are in known index list.
+  If the q-score bool variables and index_check bool variable are all true:
+    Find the reverse complement of Index 2 using a function.
+    If the reverse complement of Index 2 is equal to index 1:
+      Write the forward and reverse records to designated file using function.
+    else:
+      Write forward and reverse records to index hopped files.
+  else:
+    Write the records to unknown files.
+
+Loop through the file handles and close all of the files.
