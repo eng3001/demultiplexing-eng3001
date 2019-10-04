@@ -15,8 +15,8 @@ the record to a index file.
 
 def write_record(record array, string):
   '''write the record to the proper file'''
-  write to corresponding file "Seq_ID_F_Index1_Index2.fq" or
-  "Seq_ID_R_Index1_Index2.fq"
+  write to corresponding file "Seq_ID_F_Index1_Index2.fq" or "Seq_ID_R_Index1_Index2.fq"
+  Appending the index to the header line of the record.
   return nothing
 
 Input: seq_record[], GTAGCGTA
