@@ -61,7 +61,7 @@ Loop through the file handles and open all of the files.
 
 Open the four zipped files.
   Store the first four lines of each file into a specified array.
-  (have and array to store the record for each file)
+  (have an array to store the record for each file)
   Assign bool variables that run the Q-score checking functions.
   Assign bool variable to see if indexes are in known index list.
   If the q-score bool variables and index_check bool variable are all true:
