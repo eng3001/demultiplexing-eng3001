@@ -62,15 +62,15 @@ Loop through the file handles and open all of the files.
 Open the four zipped files.
   Store the first four lines of each file into a specified array.
   (have 4 arrays to store the record for each of the 4 files)
-  Assign bool variables that run the Q-score checking functions.
-  Assign bool variable to see if indexes are in known index list.
+  Assign bool variables that run the Q-score checking functions. // [Using check_sequence() and check_index() functions]
+  Assign bool variable to see if indexes are in known index list. // [Using valid_index() function]
   If the q-score bool variables and index_check bool variable are all true:
-    Find the reverse complement of Index 2 using a function.
+    Find the reverse complement of Index 2 using a function. // [Using reverse_complement() function]
     If the reverse complement of Index 2 is equal to index 1:
-      Write the forward and reverse records to designated file using function.
+      Write the forward and reverse records to designated file using function. // [Using write_record() function]
     else:
-      Write forward and reverse records to index hopped files.
-  else:
-    Write the records to unknown files.
+      Write forward and reverse records to index hopped files. // [Using write_record() function]
+  else: (This else applies to the if statement in line 67)
+    Write the records to unknown files. // [Using write_record() function]
 
 Loop through the file handles and close all of the files.
