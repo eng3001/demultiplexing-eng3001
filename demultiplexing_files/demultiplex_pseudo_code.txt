@@ -74,3 +74,4 @@ Open the four zipped files.
     Write the records to unknown files. // [Using write_record() function]
 
 Loop through the file handles and close all of the files.
+Print summary statistics on data. Length of files and number of records in each output file.
