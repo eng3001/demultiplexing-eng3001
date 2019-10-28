@@ -1,3 +1,4 @@
+/// The answers to the part 2 questions are in the "Qs" text file /// 
 #!/bin/python
 
 Function Definitions:
@@ -15,8 +16,8 @@ the record to a index file.
 
 def write_record(record array, string):
   '''write the record to the proper file'''
-  write to corresponding file "Seq_ID_F_Index1_Index2.fq" or
-  "Seq_ID_R_Index1_Index2.fq"
+  Append to corresponding file "Seq_ID_F_Index1_Index2.fq" or "Seq_ID_R_Index1_Index2.fq"
+  Add the index to the header line of the record.
   return nothing
 
 Input: seq_record[], GTAGCGTA
@@ -61,16 +62,17 @@ Loop through the file handles and open all of the files.
 
 Open the four zipped files.
   Store the first four lines of each file into a specified array.
-  (have and array to store the record for each file)
-  Assign bool variables that run the Q-score checking functions.
-  Assign bool variable to see if indexes are in known index list.
+  (have 4 arrays to store the record for each of the 4 files)
+  Assign bool variables that run the Q-score checking functions. // [Using check_sequence() and check_index() functions]
+  Assign bool variable to see if indexes are in known index list. // [Using valid_index() function]
   If the q-score bool variables and index_check bool variable are all true:
-    Find the reverse complement of Index 2 using a function.
+    Find the reverse complement of Index 2 using a function. // [Using reverse_complement() function]
     If the reverse complement of Index 2 is equal to index 1:
-      Write the forward and reverse records to designated file using function.
+      Write the forward and reverse records to designated file using function. // [Using write_record() function]
     else:
-      Write forward and reverse records to index hopped files.
-  else:
-    Write the records to unknown files.
+      Write forward and reverse records to index hopped files. // [Using write_record() function]
+  else: (This else applies to the if statement in line 68)
+    Write the records to unknown files. // [Using write_record() function]
 
 Loop through the file handles and close all of the files.
+Print summary statistics on data. Length of files and number of records in each output file.
