@@ -2,8 +2,8 @@
 #SBATCH --partition=bgmp        ### Partition (like a queue in PBS)
 #SBATCH --account=bgmp          ### Account used for job submission
 #SBATCH --job-name=Demultiplex      ### Job Name
-#SBATCH --output=10.28.out           ### File in which to store job output
-#SBATCH --error=10.28.err      ### File in which to store job error messages
+#SBATCH --output=10.29.out           ### File in which to store job output
+#SBATCH --error=10.29.err      ### File in which to store job error messages
 #SBATCH --time=1-20:00:00       ### Wall clock time limit in Days-HH:MM:SS
 #SBATCH --nodes=1               ### Number of nodes needed for the job
 #SBATCH --ntasks-per-node=1     ### Number of tasks to be launched per Node
@@ -13,7 +13,7 @@ conda deactivate
 conda deactivate
 conda activate bgmp_py3
 
-/usr/bin/time -v python3 Demultiplex_1028.py \
+/usr/bin/time -v python3 Demultiplex_1029.py \
 -f1 /projects/bgmp/wyatte/Bi622/1294_S1_L008_R1_001.fastq.gz \
 -f2 /projects/bgmp/wyatte/Bi622/1294_S1_L008_R2_001.fastq.gz \
 -f3 /projects/bgmp/wyatte/Bi622/1294_S1_L008_R3_001.fastq.gz \

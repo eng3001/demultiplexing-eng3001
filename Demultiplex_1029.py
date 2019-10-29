@@ -228,11 +228,11 @@ with gzip.open(R1_seq_file, 'rt') as R1_seq, gzip.open(R1_index_file, 'rt') as R
     print("Number of read pairs with index hopping observed: " + str(index_hopped_val))
     print("Percent of records where index hopping was observed: " + str((index_hopped_val/total_recs)*100) + "%")
     print("Number of read pairs with unknown indexes: " + str(unknown_pairs_val))
-    print("Percent of records with unknown indexes: " + str((unknown_pairs_val/total_recs)*100 + "%"))
+    print("Percent of records with unknown indexes: " + str((unknown_pairs_val/total_recs)*100) + "%")
     print("-------------------------------------------------------------")
-    print("Percent of reads for each index:")
-    for key in index_count_dict.key():
-        print(str(key) + " | Count: " + str(index_count_dict[key]) + " | Percentage: " + str((index_count_dict[key]/total_recs)*100))
+    print("INDEX | Count of Index Reads | Percentage of Index Reads")
+    for key in index_count_dict.keys():
+        print(str(key) + " | Count: " + str(index_count_dict[key]) + " | " + str((index_count_dict[key]/total_recs)*100) + "%")
 
     #Closing Files
     R1_seq.close()
