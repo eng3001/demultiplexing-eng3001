@@ -34,9 +34,10 @@ R1_index_file = args.R2_file
 R2_index_file = args.R3_file
 R2_seq_file = args.R4_file
 index_file = args.index_file
+
 #Minimum quality score input values
-seq_qual_score = args.seq_cutoff
-index_qual_score = args.index_cutoff
+seq_qual_score = args.seq_cutoff # minimum sequence quality score cut off
+index_qual_score = args.index_cutoff # minimum index quality score cut off
 
 #  Will be used to check qscore.
 def convert_phred(letter):
@@ -92,6 +93,9 @@ def check_index_quality(index_string, seq):
         bool_val = False
     return bool_val
 
+# This function checks the sequence quality score of every record in order to
+# ensure only high quality reads are processed. The minimum quality score can be
+# passed in through argparse.
 def check_seq_quality(seq):
     '''Checks if the sequences average q-score is above a specific value'''
     sum_q_array = []
@@ -109,6 +113,7 @@ def check_seq_quality(seq):
         bool_val = True
     return bool_val
 
+# This function checks if the index is in the given index list 
 def valid_barcode(barcode, barcode_dict):
     '''Checks to see if the sequenced barcode is in the given barcode list'''
     bool_val = False
