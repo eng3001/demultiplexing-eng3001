@@ -10,5 +10,5 @@ The objective of this function is to demultiplex Illumina reads that are dual-in
 - -i, --index_file : Index file name.
 - -iq,--index_cutoff : Minimum average index quality score cut off
 
-Required parameter to run 
+Required parameter to run ```Demultiplexing_Checking_Sequence_Quality_Score_longer_runtime.py```
 - -sq,--seq_cutoff : Minimum average sequence quality score cut off
