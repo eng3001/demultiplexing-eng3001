@@ -9,3 +9,6 @@ The objective of this function is to demultiplex Illumina reads that are dual-in
 - -f4,--R4_file : Read 4 File name.
 - -i, --index_file : Index file name.
 - -iq,--index_cutoff : Minimum average index quality score cut off
+
+Required parameter to run 
+- -sq,--seq_cutoff : Minimum average sequence quality score cut off
